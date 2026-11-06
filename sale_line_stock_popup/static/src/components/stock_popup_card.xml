@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="sale_line_stock_popup.StockPopupCard" owl="1">
+        <div class="o_sol_stock_popup_card" t-on-mouseenter="onMouseEnter" t-on-mouseleave="onMouseLeave">
+            <t t-if="props.error">
+                <div class="o_sol_stock_popup_error text-danger p-2">
+                    <i class="fa fa-exclamation-triangle me-1" role="img" aria-label="Error" title="Error"/>
+                    Unable to load stock information.
+                </div>
+            </t>
+            <t t-else="">
+                <t t-set="product" t-value="data.product"/>
+                <div class="o_sol_stock_popup_header d-flex">
+                    <img class="o_sol_stock_popup_image rounded" t-att-src="product.image_url" t-att-alt="product.name"/>
+                    <div class="o_sol_stock_popup_info flex-grow-1">
+                        <div class="o_sol_stock_popup_name fw-bold" t-esc="product.name"/>
+                        <div t-if="product.default_code" class="text-muted small" t-esc="product.default_code"/>
+                        <div class="o_sol_stock_popup_prices">
+                            <span class="o_sol_stock_popup_price">
+                                <span class="text-muted">Sales Price:</span>
+                                <span class="fw-bold ms-1" t-esc="product.sale_price"/>
+                            </span>
+                            <span t-if="product.show_cost" class="o_sol_stock_popup_cost">
+                                <span class="text-muted">Cost:</span>
+                                <span class="fw-bold ms-1" t-esc="product.cost"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div t-if="!data.is_storable" class="o_sol_stock_popup_note text-muted small">
+                    <i class="fa fa-info-circle me-1" role="img" aria-label="Info" title="Info"/>
+                    Stock is not tracked for this product.
+                </div>
+                <div t-elif="!hasStockTable" class="o_sol_stock_popup_note text-muted small">
+                    No warehouse found for this company.
+                </div>
+                <table t-else="" class="table table-sm o_sol_stock_popup_table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-start">Warehouse</th>
+                            <th t-if="data.show_on_hand" class="text-end">On Hand</th>
+                            <th t-if="data.show_forecast" class="text-end">Forecasted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="data.warehouses" t-as="wh" t-key="wh.id">
+                            <tr t-attf-class="o_sol_stock_wh_row #{wh.is_order_warehouse ? 'o_sol_stock_wh_current' : ''}" t-att-data-warehouse-id="wh.id">
+                                <td class="text-start">
+                                    <span class="o_sol_stock_wh_name" t-esc="wh.name"/>
+                                    <span t-if="wh.is_order_warehouse" class="badge rounded-pill bg-primary ms-1">Order</span>
+                                </td>
+                                <td t-if="data.show_on_hand" t-attf-class="text-end o_sol_stock_on_hand #{qtyClass(wh.on_hand)}" t-esc="formatQty(wh.on_hand)"/>
+                                <td t-if="data.show_forecast" t-attf-class="text-end o_sol_stock_forecast #{qtyClass(wh.forecast)}" t-esc="formatQty(wh.forecast)"/>
+                            </tr>
+                            <t t-if="data.show_on_hand">
+                                <tr t-foreach="wh.locations" t-as="loc" t-key="loc.id" class="o_sol_stock_loc_row small text-muted">
+                                    <td class="text-start o_sol_stock_loc_name" t-esc="loc.name"/>
+                                    <td class="text-end" t-esc="formatQty(loc.on_hand)"/>
+                                    <td t-if="data.show_forecast"/>
+                                </tr>
+                                <tr t-if="wh.more_locations" class="o_sol_stock_loc_row small text-muted">
+                                    <td class="text-start o_sol_stock_loc_name" t-att-colspan="data.show_forecast ? 3 : 2">
+                                        + <t t-esc="wh.more_locations"/> more location(s)
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                    <tfoot t-if="showTotals">
+                        <tr class="o_sol_stock_total_row fw-bold">
+                            <td class="text-start">Total</td>
+                            <td t-if="data.show_on_hand" t-attf-class="text-end #{qtyClass(data.totals.on_hand)}" t-esc="formatQty(data.totals.on_hand)"/>
+                            <td t-if="data.show_forecast" t-attf-class="text-end #{qtyClass(data.totals.forecast)}" t-esc="formatQty(data.totals.forecast)"/>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div t-if="hasStockTable" class="o_sol_stock_popup_uom text-muted small text-end">
+                    Unit of Measure: <t t-esc="product.uom"/>
+                </div>
+            </t>
+        </div>
+    </t>
+
+</templates>

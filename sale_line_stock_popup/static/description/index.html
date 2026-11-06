@@ -1,0 +1,174 @@
+<!-- Odoo Apps description page for sale_line_stock_popup (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Sales &middot; Inventory &middot; Multi-warehouse</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Stock on Sales Order Lines</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">See <b>On Hand</b> and <b>Forecasted</b> stock right in the order lines, and hover any product for a card with its image, sales price, cost and a breakdown per warehouse and location. Your salespeople quote what you can actually deliver, without leaving the quotation.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">21 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic (RTL)</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: sale_line_stock_popup</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 columns</div><div style="font-size:15px;color:#555;">On Hand and Forecasted on every order line, each user can hide or show them</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">1 hover</div><div style="font-size:15px;color:#555;">Image, sales price, cost and stock per warehouse and location</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 scopes</div><div style="font-size:15px;color:#555;">The order&rsquo;s warehouse only, or every warehouse of the company</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">3 queries</div><div style="font-size:15px;color:#555;">Per popup, whether you run 1 warehouse or 20</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Salespeople need one answer while they type a quotation: <b>can we deliver this, and from where?</b></p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The order lines have <b>no On Hand or Forecasted column</b>; you open a small forecast icon line by line.</li>
+      <li>That forecast covers <b>only the order&rsquo;s warehouse</b>; stock sitting in another warehouse stays invisible.</li>
+      <li>There is <b>no breakdown by location</b> (shelves, sub-locations).</li>
+      <li>Checking the product&rsquo;s <b>image, price or cost</b> means opening the product form.</li>
+      <li>Salespeople without <b>Inventory</b> rights cannot open stock reports to check.</li>
+      <li>Changing the order&rsquo;s warehouse gives no immediate view of what the other warehouse holds.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>On Hand</b> and <b>Forecasted</b> columns on every line, shown according to the <b>Metric</b> setting.</li>
+      <li>Scope set per company: the <b>Sales Order Warehouse</b> or <b>All Warehouses</b>, with a total.</li>
+      <li>The hover card lists <b>internal locations</b> holding the product under each warehouse.</li>
+      <li>The card shows the <b>image</b>, <b>Sales Price</b> and, for Sales Administrators, the <b>Cost</b>.</li>
+      <li>Stock figures are shown to <b>salespeople too</b>, with no extra Inventory rights to grant.</li>
+      <li>Figures follow the order header <b>as you edit it</b>, even before saving.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, nothing to set up on products or warehouses.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Tick <b>Stock on SO lines</b> in Sales settings for your company.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Choose</div><div style="font-size:14px;color:#555;">Pick the <b>Metric</b> (On Hand, Forecasted, Both) and the <b>Scope</b>.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Quote</div><div style="font-size:14px;color:#555;">The stock columns appear on the order lines; hide or show them per user.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Hover</div><div style="font-size:14px;color:#555;">Rest the mouse on a product to open its stock card.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use the module&rsquo;s demo data: two warehouses (<b>WH</b> and <b>Jeddah Warehouse</b>), shelves A and B, three furniture products, a confirmed order taking stock out and a receipt bringing desks into Jeddah.</p>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One block in Sales settings, per company</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Go to <b>Sales &rsaquo; Configuration &rsaquo; Settings &rsaquo; Order Line Stock Popup</b>. Tick <b>Stock on SO lines</b>, then choose the <b>Metric</b> (Quantity On Hand, Forecasted Quantity or Both) and the <b>Scope</b> (Sales Order Warehouse or All Warehouses). <b>Popup Active (All Companies)</b> is a database-wide master switch that pauses the feature everywhere without losing each company&rsquo;s choices.</p>
+  <img src="slsp_01_settings.png" alt="Order Line Stock Popup block in Sales settings with Metric, Scope and master switch" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Stock columns right on the order lines</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>On Hand</b> and <b>Forecasted</b> columns appear next to <b>Quantity</b>, in the product&rsquo;s unit of measure. With Metric set to <b>Both</b> you get the two columns; with <b>Quantity On Hand</b> or <b>Forecasted Quantity</b> you get only that one. Negative figures turn <b>red</b>. Each user can hide or show the columns from the <b>optional columns</b> menu at the end of the header, and Odoo remembers that choice.</p>
+  <img src="slsp_02_columns.png" alt="Quotation lines with On Hand and Forecasted columns" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="slsp_03_optional_columns.png" alt="Optional columns menu with On Hand and Forecasted check boxes" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Hide or show the stock columns per user from the optional columns menu.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Hover a product for its stock card</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Rest the mouse on the product of any line, in a draft quotation or a confirmed order. The card shows the product <b>image</b>, internal reference, <b>Sales Price</b> and <b>Cost</b>, then one row per warehouse with <b>On Hand</b> and <b>Forecasted</b>. The order&rsquo;s warehouse is listed first and tagged <b>Order</b>; the internal locations holding the product are listed under each warehouse, with a <b>Total</b> at the bottom.</p>
+  <img src="slsp_04_popup_all_warehouses.png" alt="Stock card for Ergo Pro Office Chair with WH, its shelves and Jeddah Warehouse" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:18px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Ergo Pro Office Chair (demo)</th><th style="text-align:right;padding:10px 14px;">On Hand</th><th style="text-align:right;padding:10px 14px;">Forecasted</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">WH (Stock 18 + Shelf A 6, 10 on a confirmed order)</td><td style="padding:10px 14px;text-align:right;">24.00</td><td style="padding:10px 14px;text-align:right;">14.00</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Jeddah Warehouse</td><td style="padding:10px 14px;text-align:right;">11.00</td><td style="padding:10px 14px;text-align:right;">11.00</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Total</b></td><td style="padding:10px 14px;text-align:right;"><b>35.00</b></td><td style="padding:10px 14px;text-align:right;"><b>25.00</b></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Spot shortages and where the stock is coming from</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The forecast counts confirmed incoming and outgoing moves, the same way Odoo computes <b>Forecasted Quantity</b>. A move from one warehouse to another counts as out of the first and into the second; moves inside one warehouse are ignored. Below, the desk is over-sold in <b>WH</b> (red) while a receipt of 12 is on its way to <b>Jeddah Warehouse</b>.</p>
+  <img src="slsp_05_popup_negative.png" alt="Stock card for Standing Desk with a negative forecast in WH and incoming stock in Jeddah" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> Forecasted = On Hand + incoming &minus; outgoing, per warehouse. Standing Desk in WH: 4 on hand &minus; 6 on a confirmed order = <b>&minus;2</b>. In Jeddah: 0 on hand + 12 on a receipt = <b>12</b>.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Follows the order header, live</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With Scope set to <b>Sales Order Warehouse</b>, the columns and the card show only the warehouse selected on the order. Change the <b>Warehouse</b> in the <b>Other Info</b> tab and both update at once, before you save.</p>
+  <img src="slsp_06_popup_order_warehouse.png" alt="Stock card limited to the order warehouse" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Arabic and right-to-left ready</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Every label, setting and column is translated into <b>Arabic (ar_001)</b>, and the card mirrors correctly in right-to-left layouts.</p>
+  <img src="slsp_07_popup_arabic.png" alt="Stock card and columns in Arabic, right-to-left" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is covered by the automated tests.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Many warehouses</b><br/><span style="color:#555;">The card uses three grouped queries whatever the number of warehouses; the columns compute stock once per warehouse set, not once per line.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Only the order company&rsquo;s warehouses are counted; a warehouse or company outside the user&rsquo;s allowed companies is ignored.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Rounding</b><br/><span style="color:#555;">Sums are rounded to the product&rsquo;s unit of measure: 0.1 + 0.2 shows as 0.30, never 0.30000000000000004.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Services and consumables</b><br/><span style="color:#555;">The columns stay empty and the card still shows image and prices, with a note that stock is not tracked.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Draft moves</b><br/><span style="color:#555;">Only waiting, confirmed and reserved moves count in the forecast, as in standard Odoo.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Product configurator</b><br/><span style="color:#555;">Works when lines show the product template column: the card reads the line&rsquo;s variant.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Quick hovers</b><br/><span style="color:#555;">Short delay before opening, cached results for 30 seconds, no popup while the product drop-down is open.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Many locations</b><br/><span style="color:#555;">The card lists up to six locations per warehouse and shows &ldquo;+ N more location(s)&rdquo; for the rest.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">No new groups. What each user sees follows the standard Sales groups.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Sales / User</td><td style="padding:10px 14px;">Stock columns and the card with image and Sales Price; no Inventory rights needed. Cost is hidden.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Sales / Administrator</td><td style="padding:10px 14px;">Everything above plus the product <b>Cost</b>, and the settings block.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Only warehouses of the order&rsquo;s company, and only for companies the user is allowed in.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>sale_stock</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Menus</td><td style="padding:10px 14px;">None added; works on <b>Sales &rsaquo; Orders &rsaquo; Quotations</b> and <b>Orders</b></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Sales &rsaquo; Configuration &rsaquo; Settings &rsaquo; Order Line Stock Popup</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;">Extends <code>res.company</code>, <code>res.config.settings</code>, <code>product.product</code>, <code>sale.order</code>, <code>sale.order.line</code> (non-stored computed columns, no database bloat)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Front end</td><td style="padding:10px 14px;">OWL field widget extending the standard order-line product field; asynchronous, cached popover</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">21: 20 unit tests (figures vs. standard Odoo, scope, header changes, metric, master switch, locations, rounding, multi-company, access rights, query count, line columns) and 1 browser tour (columns and hover card)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic (ar_001)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

@@ -1,0 +1,83 @@
+// Logical properties (inline-start/end, text-start/end) so the card mirrors
+// correctly in RTL languages such as Arabic; Odoo also runs rtlcss on the
+// bundle for right-to-left users.
+
+.o_sol_stock_popup_trigger {
+    width: 100%;
+    min-width: 0;
+}
+
+.o_sol_stock_popover {
+    max-width: 440px;
+
+    .popover-body,
+    > .o_popover_body {
+        padding: 0;
+    }
+}
+
+.o_sol_stock_popup_card {
+    min-width: 300px;
+    max-width: 440px;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+
+    .o_sol_stock_popup_header {
+        gap: 0.75rem;
+        align-items: flex-start;
+        padding-block-end: 0.5rem;
+        margin-block-end: 0.5rem;
+        border-block-end: 1px solid $border-color;
+    }
+
+    .o_sol_stock_popup_image {
+        width: 64px;
+        height: 64px;
+        flex: 0 0 64px;
+        object-fit: contain;
+        background: $gray-100;
+    }
+
+    .o_sol_stock_popup_name {
+        overflow-wrap: anywhere;
+    }
+
+    .o_sol_stock_popup_prices {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+        margin-block-start: 0.25rem;
+    }
+
+    .o_sol_stock_popup_table {
+        th,
+        td {
+            padding-inline: 0.35rem;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        thead th {
+            border-block-start: 0;
+            font-weight: 600;
+        }
+    }
+
+    .o_sol_stock_wh_current > td {
+        background-color: rgba($primary, 0.08);
+    }
+
+    .o_sol_stock_loc_name {
+        padding-inline-start: 1.25rem !important;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .o_sol_stock_total_row td {
+        border-block-start: 2px solid $border-color;
+    }
+
+    .o_sol_stock_popup_note,
+    .o_sol_stock_popup_uom {
+        margin-block-start: 0.35rem;
+    }
+}

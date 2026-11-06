@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- High priority so it applies after sale_product_configurator /
+         sale_product_matrix, which also tweak these two columns. -->
+    <record id="view_order_form_stock_popup" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.line.stock.popup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="widget">sol_stock_popup_product</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="attributes">
+                <attribute name="widget">sol_stock_popup_product</attribute>
+            </xpath>
+            <!-- Column visibility follows the Metric setting; optional="show"
+                 lets each user hide/show them from the optional columns menu. -->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="stock_popup_show_on_hand" invisible="1"/>
+                <field name="stock_popup_show_forecast" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                <field name="stock_popup_on_hand" optional="show"
+                       decoration-danger="stock_popup_on_hand &lt; 0"
+                       attrs="{'column_invisible': [('parent.stock_popup_show_on_hand', '=', False)]}"/>
+                <field name="stock_popup_forecast" optional="show"
+                       decoration-danger="stock_popup_forecast &lt; 0"
+                       attrs="{'column_invisible': [('parent.stock_popup_show_forecast', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

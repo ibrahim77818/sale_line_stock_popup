@@ -1,0 +1,239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_line_stock_popup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-05 09:00+0000\n"
+"PO-Revision-Date: 2026-11-05 09:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar_001\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_company__sale_stock_popup_scope__all_warehouses
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_config_settings__sale_stock_popup_scope__all_warehouses
+msgid "All Warehouses"
+msgstr "جميع المستودعات"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_company__sale_stock_popup_metric__both
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_config_settings__sale_stock_popup_metric__both
+msgid "Both"
+msgstr "كلاهما"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Cost:"
+msgstr "التكلفة:"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Error"
+msgstr "خطأ"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_sale_order_line__stock_popup_forecast
+msgid "Forecasted"
+msgstr "المتوقعة"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_company__sale_stock_popup_metric__forecast
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_config_settings__sale_stock_popup_metric__forecast
+msgid "Forecasted Quantity"
+msgstr "الكمية المتوقعة"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_sale_order_line__stock_popup_forecast
+msgid "Forecasted quantity in the product unit of measure, for the warehouse scope set in Sales settings."
+msgstr "الكمية المتوقعة بوحدة قياس المنتج، حسب نطاق المستودعات المحدد في إعدادات المبيعات."
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Info"
+msgstr "معلومات"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_global_active
+msgid "Master switch for the whole database. Turn it off to deactivate the hover popup everywhere without losing the configuration."
+msgstr "مفتاح رئيسي لقاعدة البيانات بأكملها. أوقفه لتعطيل النافذة المنبثقة في كل مكان دون فقدان الإعدادات."
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Master switch for the whole database: turn off to pause the popup for every company."
+msgstr "مفتاح رئيسي لقاعدة البيانات بأكملها: أوقفه لإيقاف النافذة المنبثقة مؤقتًا لجميع الشركات."
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Metric"
+msgstr "المقياس"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "more location(s)"
+msgstr "موقع/مواقع أخرى"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "No warehouse found for this company."
+msgstr "لم يتم العثور على مستودع لهذه الشركة."
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_sale_order_line__stock_popup_on_hand
+msgid "On Hand"
+msgstr "في المخزن"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Order"
+msgstr "الطلب"
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Order Line Stock Popup"
+msgstr "نافذة المخزون المنبثقة لبنود الطلب"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_global_active
+msgid "Popup Active (All Companies)"
+msgstr "تفعيل النافذة المنبثقة (لجميع الشركات)"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_company__sale_stock_popup_metric
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_metric
+msgid "Quantities displayed in the stock popup."
+msgstr "الكميات المعروضة في نافذة المخزون المنبثقة."
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_company__sale_stock_popup_metric__on_hand
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_config_settings__sale_stock_popup_metric__on_hand
+msgid "Quantity On Hand"
+msgstr "الكمية في المخزن"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_sale_order_line__stock_popup_on_hand
+msgid "Quantity on hand in the product unit of measure, for the warehouse scope set in Sales settings."
+msgstr "الكمية في المخزن بوحدة قياس المنتج، حسب نطاق المستودعات المحدد في إعدادات المبيعات."
+
+#. module: sale_line_stock_popup
+#: model:ir.model,name:sale_line_stock_popup.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: sale_line_stock_popup
+#: model:ir.model,name:sale_line_stock_popup.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر البيع"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_company__sale_stock_popup_scope__order_warehouse
+#: model:ir.model.fields.selection,name:sale_line_stock_popup.selection__res_config_settings__sale_stock_popup_scope__order_warehouse
+msgid "Sales Order Warehouse"
+msgstr "مستودع أمر البيع"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Sales Price:"
+msgstr "سعر البيع:"
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Scope"
+msgstr "النطاق"
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Show On Hand / Forecasted columns on sales order lines and a stock card when hovering the line product."
+msgstr "عرض أعمدة الكمية في المخزن / المتوقعة في بنود أوامر البيع وبطاقة المخزون عند تمرير المؤشر فوق منتج البند."
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_company__sale_stock_popup_enabled
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_enabled
+msgid "Show On Hand / Forecasted columns on sales order lines and a stock popup when hovering the line product."
+msgstr "عرض أعمدة الكمية في المخزن / المتوقعة في بنود أوامر البيع ونافذة منبثقة للمخزون عند تمرير المؤشر فوق منتج البند."
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Stock is not tracked for this product."
+msgstr "لا يتم تتبع المخزون لهذا المنتج."
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_company__sale_stock_popup_enabled
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_enabled
+msgid "Stock on SO lines"
+msgstr "المخزون في بنود أوامر البيع"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_company__sale_stock_popup_metric
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_metric
+msgid "Stock Popup Metric"
+msgstr "مقياس نافذة المخزون"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_company__sale_stock_popup_scope
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_scope
+msgid "Stock Popup Scope"
+msgstr "نطاق نافذة المخزون"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_sale_order__stock_popup_show_forecast
+msgid "Stock Popup Show Forecast"
+msgstr "إظهار عمود الكمية المتوقعة"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,field_description:sale_line_stock_popup.field_sale_order__stock_popup_show_on_hand
+msgid "Stock Popup Show On Hand"
+msgstr "إظهار عمود الكمية في المخزن"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Unable to load stock information."
+msgstr "تعذّر تحميل معلومات المخزون."
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Unit of Measure:"
+msgstr "وحدة القياس:"
+
+#. module: sale_line_stock_popup
+#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr "القيم المحددة هنا خاصة بالشركة."
+
+#. module: sale_line_stock_popup
+#. odoo-javascript
+#: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
+msgid "Warehouse"
+msgstr "المستودع"
+
+#. module: sale_line_stock_popup
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_company__sale_stock_popup_scope
+#: model:ir.model.fields,help:sale_line_stock_popup.field_res_config_settings__sale_stock_popup_scope
+msgid "Warehouses included in the stock popup."
+msgstr "المستودعات المشمولة في نافذة المخزون المنبثقة."

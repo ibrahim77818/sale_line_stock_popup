@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Master switch defaults to active; each company still has to enable
+         the popup in Sales settings (company toggle defaults to False). -->
+    <data noupdate="1">
+        <record id="param_global_active" model="ir.config_parameter">
+            <field name="key">sale_line_stock_popup.global_active</field>
+            <field name="value">True</field>
+        </record>
+    </data>
+</odoo>

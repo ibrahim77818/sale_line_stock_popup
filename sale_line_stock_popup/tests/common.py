@@ -45,7 +45,6 @@ class StockPopupCommon(TransactionCase):
     @classmethod
     def _move(cls, product, src, dst, qty, confirm=True):
         move = cls.env["stock.move"].create({
-            "name": "Popup test move",
             "product_id": product.id,
             "product_uom": product.uom_id.id,
             "product_uom_qty": qty,

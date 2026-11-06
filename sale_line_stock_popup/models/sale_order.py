@@ -28,14 +28,14 @@ class SaleOrderLine(models.Model):
     stock_popup_on_hand = fields.Float(
         string="On Hand",
         compute="_compute_stock_popup_qty",
-        digits="Product Unit of Measure",
+        digits="Product Unit",
         help="Quantity on hand in the product unit of measure, for the warehouse "
              "scope set in Sales settings.",
     )
     stock_popup_forecast = fields.Float(
         string="Forecasted",
         compute="_compute_stock_popup_qty",
-        digits="Product Unit of Measure",
+        digits="Product Unit",
         help="Forecasted quantity in the product unit of measure, for the warehouse "
              "scope set in Sales settings.",
     )

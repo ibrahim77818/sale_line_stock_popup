@@ -166,7 +166,7 @@ class TestSaleLineStockPopup(StockPopupCommon):
             "login": "popup_salesman",
             "company_id": self.company.id,
             "company_ids": [(6, 0, [self.company.id])],
-            "groups_id": [(6, 0, [self.env.ref("sales_team.group_sale_salesman").id])],
+            "group_ids": [(6, 0, [self.env.ref("sales_team.group_sale_salesman").id])],
         })
         data = self._popup(env=self.env(user=salesman), warehouse_id=self.wh_a.id)
         self.assertTrue(data["enabled"])
@@ -180,7 +180,7 @@ class TestSaleLineStockPopup(StockPopupCommon):
             "login": "popup_manager",
             "company_id": self.company.id,
             "company_ids": [(6, 0, [self.company.id])],
-            "groups_id": [(6, 0, [self.env.ref("sales_team.group_sale_manager").id])],
+            "group_ids": [(6, 0, [self.env.ref("sales_team.group_sale_manager").id])],
         })
         data = self._popup(env=self.env(user=manager), warehouse_id=self.wh_a.id)
         self.assertTrue(data["product"]["show_cost"])

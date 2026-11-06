@@ -50,7 +50,7 @@ class ProductProduct(models.Model):
         warehouses, current = self._sale_stock_popup_warehouses(company, scope, warehouse_id)
 
         uom = product.uom_id
-        precision = self.env["decimal.precision"].precision_get("Product Unit of Measure")
+        precision = self.env["decimal.precision"].precision_get("Product Unit")
         is_storable = product.is_storable
         rows = []
         totals = {"on_hand": 0.0, "forecast": 0.0}
@@ -130,21 +130,22 @@ class ProductProduct(models.Model):
     @api.model
     def _sale_stock_popup_aggregate(self, product, warehouses, current):
         """Constant number of queries whatever the number of warehouses:
-        one location search, one quant read_group, one move read_group."""
+        one location search, one quant _read_group, one move _read_group."""
         loc_wh = self._sale_stock_popup_location_map(warehouses)
         location_ids = list(loc_wh)
         rounding = product.uom_id.rounding
 
         on_hand = defaultdict(float)
         per_location = defaultdict(list)
-        quant_groups = self.env["stock.quant"].sudo().read_group(
+        # v19: read_group is deprecated; _read_group returns (location, qty) tuples.
+        quant_groups = self.env["stock.quant"].sudo()._read_group(
             [("product_id", "=", product.id), ("location_id", "in", location_ids)],
-            ["location_id", "quantity:sum"], ["location_id"], lazy=False,
+            groupby=["location_id"], aggregates=["quantity:sum"],
         )
-        for group in quant_groups:
-            loc_id, loc_name = group["location_id"]
+        for location, qty in quant_groups:
+            loc_id, loc_name = location.id, location.display_name
             wh_id = loc_wh.get(loc_id)
-            qty = group["quantity"] or 0.0
+            qty = qty or 0.0
             if not wh_id:
                 continue
             on_hand[wh_id] += qty
@@ -157,7 +158,7 @@ class ProductProduct(models.Model):
 
         incoming = defaultdict(float)
         outgoing = defaultdict(float)
-        move_groups = self.env["stock.move"].sudo().read_group(
+        move_groups = self.env["stock.move"].sudo()._read_group(
             [
                 ("product_id", "=", product.id),
                 ("state", "in", FORECAST_MOVE_STATES),
@@ -165,15 +166,14 @@ class ProductProduct(models.Model):
                 ("location_id", "in", location_ids),
                 ("location_dest_id", "in", location_ids),
             ],
-            ["location_id", "location_dest_id", "product_qty:sum"],
-            ["location_id", "location_dest_id"], lazy=False,
+            groupby=["location_id", "location_dest_id"], aggregates=["product_qty:sum"],
         )
-        for group in move_groups:
-            src_wh = loc_wh.get(group["location_id"] and group["location_id"][0])
-            dst_wh = loc_wh.get(group["location_dest_id"] and group["location_dest_id"][0])
+        for src_location, dst_location, qty in move_groups:
+            src_wh = loc_wh.get(src_location.id)
+            dst_wh = loc_wh.get(dst_location.id)
             if src_wh == dst_wh:
                 continue  # internal move inside one warehouse: no impact
-            qty = group["product_qty"] or 0.0
+            qty = qty or 0.0
             if dst_wh:
                 incoming[dst_wh] += qty
             if src_wh:

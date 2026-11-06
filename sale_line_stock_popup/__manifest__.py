@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Sale Line Stock Popup",
-    "version": "18.0.1.1.0",
+    "version": "19.0.1.1.0",
     "category": "Sales/Sales",
     "summary": "On Hand / Forecasted columns on Sales Order lines, plus a hover "
                "popup with image, prices and stock per warehouse and location.",
@@ -17,7 +17,7 @@ both) for the order warehouse or for every warehouse of the company.
 * Per-company configuration in Sales settings (metric, scope).
 * Database-wide master switch to deactivate the popup instantly.
 * Asynchronous, cached OWL popover; works on editable and read-only lines.
-* Server-side aggregation with read_group on quants and moves (constant number
+* Server-side aggregation with _read_group on quants and moves (constant number
   of queries whatever the number of warehouses).
 * Arabic (ar_001) translation and RTL layout.
 """,

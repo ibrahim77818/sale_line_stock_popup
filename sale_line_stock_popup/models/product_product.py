@@ -35,15 +35,13 @@ class ProductProduct(models.Model):
             return {"enabled": True, "company_id": company.id, "product": False}
         # The user must be allowed to see the product; stock figures are then
         # read with sudo so salespeople without Inventory rights get them too.
-        product.check_access_rights("read")
-        product.check_access_rule("read")
+        product.check_access("read")
         product = product.with_company(company)
 
         if not warehouse_id and order_id:
             order = self.env["sale.order"].browse(int(order_id)).exists()
             if order:
-                order.check_access_rights("read")
-                order.check_access_rule("read")
+                order.check_access("read")
                 warehouse_id = order.warehouse_id.id
 
         settings = company.sudo()
@@ -53,7 +51,7 @@ class ProductProduct(models.Model):
 
         uom = product.uom_id
         precision = self.env["decimal.precision"].precision_get("Product Unit of Measure")
-        is_storable = product.type == "product"
+        is_storable = product.is_storable
         rows = []
         totals = {"on_hand": 0.0, "forecast": 0.0}
         if is_storable and warehouses:

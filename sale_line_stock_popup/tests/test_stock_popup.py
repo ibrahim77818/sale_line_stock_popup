@@ -42,7 +42,7 @@ class TestSaleLineStockPopup(StockPopupCommon):
         for wh, on_hand, forecast in ((self.wh_a, 14.75, 9.75), (self.wh_b, 7.0, 14.0)):
             row = self._row(data, wh)
             self.assertTrue(row, "warehouse %s missing" % wh.name)
-            standard = self.product.with_context(warehouse=wh.id)
+            standard = self.product.with_context(warehouse_id=wh.id)
             self.assertQty(row["on_hand"], on_hand)
             self.assertQty(row["forecast"], forecast)
             self.assertQty(row["on_hand"], standard.qty_available)
@@ -123,7 +123,7 @@ class TestSaleLineStockPopup(StockPopupCommon):
         self.assertQty(sum(by_id.values()), row["on_hand"])
 
     def test_11_float_precision(self):
-        product = self.env["product.product"].create({"name": "Precision", "type": "product"})
+        product = self.env["product.product"].create({"name": "Precision", "type": "consu", "is_storable": True})
         shelf_2 = self.env["stock.location"].create({
             "name": "Popup Shelf 2", "usage": "internal", "location_id": self.wh_a.lot_stock_id.id,
         })

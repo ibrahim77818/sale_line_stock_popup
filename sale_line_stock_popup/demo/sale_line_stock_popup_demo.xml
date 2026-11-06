@@ -33,7 +33,8 @@
     <record id="demo_product_chair" model="product.product">
         <field name="name">Ergo Pro Office Chair</field>
         <field name="default_code">SLSP-CHAIR</field>
-        <field name="type">product</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
         <field name="list_price">1250.0</field>
         <field name="standard_price">780.0</field>
         <field name="image_1920" type="base64" file="sale_line_stock_popup/static/img/demo_office_chair.png"/>
@@ -41,7 +42,8 @@
     <record id="demo_product_desk" model="product.product">
         <field name="name">Standing Desk 160 cm</field>
         <field name="default_code">SLSP-DESK</field>
-        <field name="type">product</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
         <field name="list_price">2400.0</field>
         <field name="standard_price">1650.0</field>
         <field name="image_1920" type="base64" file="sale_line_stock_popup/static/img/demo_standing_desk.png"/>
@@ -49,7 +51,8 @@
     <record id="demo_product_lamp" model="product.product">
         <field name="name">LED Desk Lamp</field>
         <field name="default_code">SLSP-LAMP</field>
-        <field name="type">product</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
         <field name="list_price">185.0</field>
         <field name="standard_price">92.5</field>
         <field name="image_1920" type="base64" file="sale_line_stock_popup/static/img/demo_desk_lamp.png"/>

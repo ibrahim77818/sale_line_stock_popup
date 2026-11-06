@@ -51,7 +51,7 @@ class SaleOrderLine(models.Model):
         for line in self:
             line.stock_popup_on_hand = 0.0
             line.stock_popup_forecast = 0.0
-            if line.display_type or not line.product_id or line.product_id.type != "product":
+            if line.display_type or not line.product_id or not line.product_id.is_storable:
                 continue
             company = line.order_id.company_id or self.env.company
             if not Product._sale_stock_popup_is_active(company):
@@ -72,7 +72,7 @@ class SaleOrderLine(models.Model):
                 groups[(company.id, wh_ids)] |= line
         for (company_id, wh_ids), lines in groups.items():
             products = lines.product_id.sudo().with_company(company_id).with_context(
-                warehouse=list(wh_ids),
+                warehouse_id=list(wh_ids),
             )
             qties = {p.id: (p.qty_available, p.virtual_available) for p in products}
             for line in lines:

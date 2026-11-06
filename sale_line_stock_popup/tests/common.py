@@ -31,7 +31,8 @@ class StockPopupCommon(TransactionCase):
 
         cls.product = cls.env["product.product"].create({
             "name": "Popup Product",
-            "type": "product",
+            "type": "consu",
+            "is_storable": True,
             "default_code": "POP-001",
             "list_price": 100.0,
             "standard_price": 60.0,

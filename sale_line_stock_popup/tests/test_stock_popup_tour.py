@@ -21,7 +21,8 @@ class TestSaleLineStockPopupTour(HttpCase):
         })
         product = self.env["product.product"].create({
             "name": "Popup Tour Product",
-            "type": "product",
+            "type": "consu",
+            "is_storable": True,
             "list_price": 25.0,
             "standard_price": 10.0,
         })
@@ -34,7 +35,7 @@ class TestSaleLineStockPopupTour(HttpCase):
             "order_line": [(0, 0, {"product_id": product.id, "product_uom_qty": 2})],
         })
         self.start_tour(
-            "/web#id=%s&model=sale.order&view_type=form" % order.id,
+            "/odoo/sales/%s" % order.id,
             "sale_line_stock_popup_tour",
             login="admin",
         )

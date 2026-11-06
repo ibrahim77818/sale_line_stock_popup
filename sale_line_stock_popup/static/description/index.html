@@ -64,7 +64,7 @@
 
 <!-- ============================== FEATURES ============================== -->
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
-<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use the module&rsquo;s demo data: two warehouses (<b>WH</b> and <b>Jeddah Warehouse</b>), shelves A and B, three furniture products, a confirmed order taking stock out and a receipt bringing desks into Jeddah.</p>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use the module&rsquo;s demo data: two warehouses (the company&rsquo;s main warehouse <b>YourCompany</b>, code WH, and <b>Jeddah Warehouse</b>, code JED), shelves A and B, three furniture products, a confirmed order taking stock out and a receipt bringing desks into Jeddah.</p>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
@@ -86,11 +86,11 @@
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Hover a product for its stock card</h3>
   <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Rest the mouse on the product of any line, in a draft quotation or a confirmed order. The card shows the product <b>image</b>, internal reference, <b>Sales Price</b> and <b>Cost</b>, then one row per warehouse with <b>On Hand</b> and <b>Forecasted</b>. The order&rsquo;s warehouse is listed first and tagged <b>Order</b>; the internal locations holding the product are listed under each warehouse, with a <b>Total</b> at the bottom.</p>
-  <img src="slsp_04_popup_all_warehouses.png" alt="Stock card for Ergo Pro Office Chair with WH, its shelves and Jeddah Warehouse" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="slsp_04_popup_all_warehouses.png" alt="Stock card for Ergo Pro Office Chair with the main warehouse, its shelf and Jeddah Warehouse" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   <table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:18px;">
     <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Ergo Pro Office Chair (demo)</th><th style="text-align:right;padding:10px 14px;">On Hand</th><th style="text-align:right;padding:10px 14px;">Forecasted</th></tr></thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">WH (Stock 18 + Shelf A 6, 10 on a confirmed order)</td><td style="padding:10px 14px;text-align:right;">24.00</td><td style="padding:10px 14px;text-align:right;">14.00</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">YourCompany (WH/Stock 18 + WH/Stock/Shelf A 6, 10 on a confirmed order)</td><td style="padding:10px 14px;text-align:right;">24.00</td><td style="padding:10px 14px;text-align:right;">14.00</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Jeddah Warehouse</td><td style="padding:10px 14px;text-align:right;">11.00</td><td style="padding:10px 14px;text-align:right;">11.00</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Total</b></td><td style="padding:10px 14px;text-align:right;"><b>35.00</b></td><td style="padding:10px 14px;text-align:right;"><b>25.00</b></td></tr>
     </tbody>
@@ -100,9 +100,9 @@
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Spot shortages and where the stock is coming from</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The forecast counts confirmed incoming and outgoing moves, the same way Odoo computes <b>Forecasted Quantity</b>. A move from one warehouse to another counts as out of the first and into the second; moves inside one warehouse are ignored. Below, the desk is over-sold in <b>WH</b> (red) while a receipt of 12 is on its way to <b>Jeddah Warehouse</b>.</p>
-  <img src="slsp_05_popup_negative.png" alt="Stock card for Standing Desk with a negative forecast in WH and incoming stock in Jeddah" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> Forecasted = On Hand + incoming &minus; outgoing, per warehouse. Standing Desk in WH: 4 on hand &minus; 6 on a confirmed order = <b>&minus;2</b>. In Jeddah: 0 on hand + 12 on a receipt = <b>12</b>.</div>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The forecast counts confirmed incoming and outgoing moves, the same way Odoo computes <b>Forecasted Quantity</b>. A move from one warehouse to another counts as out of the first and into the second; moves inside one warehouse are ignored. Below, the desk is over-sold in <b>YourCompany</b> (red) while a receipt of 12 is on its way to <b>Jeddah Warehouse</b>.</p>
+  <img src="slsp_05_popup_negative.png" alt="Stock card for Standing Desk with a negative forecast in the main warehouse and incoming stock in Jeddah" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> Forecasted = On Hand + incoming &minus; outgoing, per warehouse. Standing Desk in YourCompany: 4 on hand &minus; 6 on a confirmed order = <b>&minus;2</b>. In Jeddah: 0 on hand + 12 on a receipt = <b>12</b>.</div>
 </div>
 
 <div style="margin:44px 0 0;">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="sale_line_stock_popup.ProductField" owl="1">
+    <t t-name="sale_line_stock_popup.ProductField">
         <div class="o_sol_stock_popup_trigger" t-ref="stockPopupAnchor"
              t-on-mouseenter="onStockPopupEnter"
              t-on-mouseleave="onStockPopupLeave"

@@ -4,6 +4,8 @@ import { Component } from "@odoo/owl";
 import { formatFloat } from "@web/views/fields/formatters";
 
 export class StockPopupCard extends Component {
+    static template = "sale_line_stock_popup.StockPopupCard";
+
     get data() {
         return this.props.data || {};
     }
@@ -39,4 +41,3 @@ export class StockPopupCard extends Component {
         }
     }
 }
-StockPopupCard.template = "sale_line_stock_popup.StockPopupCard";

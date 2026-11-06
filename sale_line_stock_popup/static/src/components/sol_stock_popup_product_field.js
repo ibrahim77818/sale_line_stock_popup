@@ -4,14 +4,17 @@ import { onWillUnmount, useRef } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { usePopover } from "@web/core/popover/popover_hook";
-import { SaleOrderLineProductField } from "@sale/js/sale_product_field";
+import {
+    SaleOrderLineProductField,
+    saleOrderLineProductField,
+} from "@sale/js/sale_product_field";
 import { StockPopupCard } from "./stock_popup_card";
 import { fetchStockPopupData, isStockPopupDisabled } from "./stock_popup_service";
 
 const OPEN_DELAY = 350;
 const CLOSE_DELAY = 250;
 
-const m2oId = (value) => (Array.isArray(value) ? value[0] : value) || false;
+const m2oId = (value) => (Array.isArray(value) ? value[0] : value && value.id) || false;
 
 /**
  * Extends the standard sales order line product field (sol_product_many2one)
@@ -19,13 +22,20 @@ const m2oId = (value) => (Array.isArray(value) ? value[0] : value) || false;
  * wraps it in a hover zone that opens the stock card in a popover.
  */
 export class SolStockPopupProductField extends SaleOrderLineProductField {
+    static template = "sale_line_stock_popup.ProductField";
+
     setup() {
         super.setup();
         this.stockPopupOrm = useService("orm");
-        this.stockPopover = usePopover();
         this.stockPopupAnchor = useRef("stockPopupAnchor");
-        this.stockPopupState = { openTimer: null, closeTimer: null, close: null, token: 0 };
-        onWillUnmount(() => this.closeStockPopup());
+        this.stockPopupState = { openTimer: null, closeTimer: null, token: 0 };
+        // v17 API: the component is given to the hook, open()/close() later.
+        this.stockPopover = usePopover(StockPopupCard, {
+            position: "bottom",
+            popoverClass: "o_sol_stock_popover",
+            closeOnClickAway: true,
+        });
+        onWillUnmount(() => this.clearStockPopupTimers());
     }
 
     /** Values are read live from the (possibly unsaved) order header. */
@@ -45,8 +55,8 @@ export class SolStockPopupProductField extends SaleOrderLineProductField {
     onStockPopupEnter() {
         const state = this.stockPopupState;
         clearTimeout(state.closeTimer);
-        if (state.close) {
-            return; // already open
+        if (this.stockPopover.isOpen) {
+            return;
         }
         const params = this.stockPopupParams;
         if (!params.productId || isStockPopupDisabled(params.companyId)) {
@@ -67,13 +77,18 @@ export class SolStockPopupProductField extends SaleOrderLineProductField {
                 error = true;
             }
             const el = this.stockPopupAnchor.el;
-            if (token !== state.token || !el || !el.isConnected || state.close) {
+            if (token !== state.token || !el || !el.isConnected || this.stockPopover.isOpen) {
                 return; // mouse left, row re-rendered or popup already shown
             }
             if (!error && (!data || !data.enabled || !data.product)) {
                 return;
             }
-            this.openStockPopup(el, data, error);
+            this.stockPopover.open(el, {
+                data,
+                error,
+                onMouseEnter: () => clearTimeout(state.closeTimer),
+                onMouseLeave: () => this.scheduleStockPopupClose(),
+            });
         }, OPEN_DELAY);
     }
 
@@ -84,45 +99,31 @@ export class SolStockPopupProductField extends SaleOrderLineProductField {
         this.scheduleStockPopupClose();
     }
 
-    openStockPopup(target, data, error) {
-        const state = this.stockPopupState;
-        state.close = this.stockPopover.add(
-            target,
-            StockPopupCard,
-            {
-                data,
-                error,
-                onMouseEnter: () => clearTimeout(state.closeTimer),
-                onMouseLeave: () => this.scheduleStockPopupClose(),
-            },
-            {
-                position: "bottom",
-                popoverClass: "o_sol_stock_popover",
-                onClose: () => {
-                    state.close = null;
-                },
-            }
-        );
-    }
-
     scheduleStockPopupClose() {
         const state = this.stockPopupState;
         clearTimeout(state.closeTimer);
         state.closeTimer = setTimeout(() => this.closeStockPopup(), CLOSE_DELAY);
     }
 
-    closeStockPopup() {
+    clearStockPopupTimers() {
         const state = this.stockPopupState;
         state.token++;
         clearTimeout(state.openTimer);
         clearTimeout(state.closeTimer);
-        if (state.close) {
-            const close = state.close;
-            state.close = null;
-            close();
+    }
+
+    closeStockPopup() {
+        this.clearStockPopupTimers();
+        if (this.stockPopover.isOpen) {
+            this.stockPopover.close();
         }
     }
 }
-SolStockPopupProductField.template = "sale_line_stock_popup.ProductField";
 
-registry.category("fields").add("sol_stock_popup_product", SolStockPopupProductField);
+// v17: the fields registry holds descriptor objects, not bare components.
+export const solStockPopupProductField = {
+    ...saleOrderLineProductField,
+    component: SolStockPopupProductField,
+};
+
+registry.category("fields").add("sol_stock_popup_product", solStockPopupProductField);

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Sale Line Stock Popup",
-    "version": "16.0.1.1.0",
+    "version": "17.0.1.1.0",
     "category": "Sales/Sales",
     "summary": "On Hand / Forecasted columns on Sales Order lines, plus a hover "
                "popup with image, prices and stock per warehouse and location.",

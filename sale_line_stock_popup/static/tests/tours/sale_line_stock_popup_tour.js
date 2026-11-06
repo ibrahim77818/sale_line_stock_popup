@@ -7,7 +7,7 @@ const TRIGGER = '.o_field_widget[name="order_line"] .o_data_row .o_sol_stock_pop
 registry.category("web_tour.tours").add("sale_line_stock_popup_tour", {
     test: true,
     url: "/web",
-    steps: [
+    steps: () => [
         {
             content: "On Hand column is shown on the order line (metric = Both)",
             trigger: '.o_field_widget[name="order_line"] .o_data_row td[name="stock_popup_on_hand"]:contains(12)',

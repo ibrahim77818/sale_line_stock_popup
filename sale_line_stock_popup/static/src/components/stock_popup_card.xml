@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="sale_line_stock_popup.StockPopupCard" owl="1">
+    <t t-name="sale_line_stock_popup.StockPopupCard">
         <div class="o_sol_stock_popup_card" t-on-mouseenter="onMouseEnter" t-on-mouseleave="onMouseLeave">
             <t t-if="props.error">
                 <div class="o_sol_stock_popup_error text-danger p-2">

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-05 09:00+0000\n"
 "PO-Revision-Date: 2026-11-05 09:00+0000\n"
@@ -217,11 +217,6 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/sale_line_stock_popup/static/src/components/stock_popup_card.xml:0
 msgid "Unit of Measure:"
-msgstr ""
-
-#. module: sale_line_stock_popup
-#: model_terms:ir.ui.view,arch_db:sale_line_stock_popup.res_config_settings_view_form
-msgid "Values set here are company-specific."
 msgstr ""
 
 #. module: sale_line_stock_popup

@@ -1,8 +1,8 @@
-# Sale Line Stock Popup (Odoo 16.0)
+# Sale Line Stock Popup (Odoo 17.0)
 
 **On Hand / Forecasted stock on Sales Order lines, plus a hover card with image, prices and stock per warehouse and location.**
 
-Odoo 16.0 · Community & Enterprise · English & Arabic (RTL) · LGPL-3
+Odoo 17.0 · Community & Enterprise · English & Arabic (RTL) · LGPL-3
 
 ## Features
 
@@ -50,7 +50,7 @@ odoo-bin -d <db> -i sale_line_stock_popup --test-tags /sale_line_stock_popup --s
 | `18.0` | 18.0 |
 | `19.0` | 19.0 |
 
-Version notes for this branch: Uses `attrs` view syntax, `product.type == 'product'` for stocked products.
+Version notes for this branch: Settings use the `<app>` / `<block>` / `<setting>` layout; `invisible` / `column_invisible` expressions.
 
 ## Author
 

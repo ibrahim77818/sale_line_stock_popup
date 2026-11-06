@@ -17,16 +17,16 @@
             <!-- Column visibility follows the Metric setting; optional="show"
                  lets each user hide/show them from the optional columns menu. -->
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="stock_popup_show_on_hand" invisible="1"/>
-                <field name="stock_popup_show_forecast" invisible="1"/>
+                <field name="stock_popup_show_on_hand" invisible="True"/>
+                <field name="stock_popup_show_forecast" invisible="True"/>
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
                 <field name="stock_popup_on_hand" optional="show"
                        decoration-danger="stock_popup_on_hand &lt; 0"
-                       attrs="{'column_invisible': [('parent.stock_popup_show_on_hand', '=', False)]}"/>
+                       column_invisible="not parent.stock_popup_show_on_hand"/>
                 <field name="stock_popup_forecast" optional="show"
                        decoration-danger="stock_popup_forecast &lt; 0"
-                       attrs="{'column_invisible': [('parent.stock_popup_show_forecast', '=', False)]}"/>
+                       column_invisible="not parent.stock_popup_show_forecast"/>
             </xpath>
         </field>
     </record>

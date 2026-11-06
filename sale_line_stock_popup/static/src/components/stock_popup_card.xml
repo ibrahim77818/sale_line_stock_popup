@@ -49,7 +49,7 @@
                             <tr t-attf-class="o_sol_stock_wh_row #{wh.is_order_warehouse ? 'o_sol_stock_wh_current' : ''}" t-att-data-warehouse-id="wh.id">
                                 <td class="text-start">
                                     <span class="o_sol_stock_wh_name" t-esc="wh.name"/>
-                                    <span t-if="wh.is_order_warehouse" class="badge rounded-pill bg-primary ms-1">Order</span>
+                                    <span t-if="wh.is_order_warehouse" class="badge rounded-pill bg-primary text-white ms-1">Order</span>
                                 </td>
                                 <td t-if="data.show_on_hand" t-attf-class="text-end o_sol_stock_on_hand #{qtyClass(wh.on_hand)}" t-esc="formatQty(wh.on_hand)"/>
                                 <td t-if="data.show_forecast" t-attf-class="text-end o_sol_stock_forecast #{qtyClass(wh.forecast)}" t-esc="formatQty(wh.forecast)"/>
